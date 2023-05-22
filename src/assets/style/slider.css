@@ -1,0 +1,25 @@
+.slider {
+  background-image: url('../Images/shoppinglady.jpg');
+  width: 100% auto;
+  height: 60vh;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.slider button {
+  border: 2px solid black;
+  padding: 0.5rem;
+  border-radius: 15px;
+  background-color: rgb(17, 67, 248);
+  width: 10rem;
+  color: white;
+  position: absolute;
+  bottom: 3rem;
+  left: 5rem;
+  cursor: pointer;
+}
+.slider button:hover {
+  background-color: rgb(9, 54, 190);
+  cursor: pointer;
+}
