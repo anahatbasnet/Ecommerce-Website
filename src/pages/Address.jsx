@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Button from '../component/Button';
 import { setLocation } from '../redux/Slice/addressslice';
+import Navbar from '../component/Navbar';
 
 export default function Address() {
   const navigate = useNavigate();
@@ -25,6 +26,8 @@ export default function Address() {
   };
 
   return (
+    <>
+    <Navbar/>
     <div className="max-w-md mx-auto p-6 bg-white shadow-md mt-24">
       <form className="space-y-4 font-semibold text-lg m-2 self-center" onSubmit={handleAddress}>
         <p className='p-2 m-c flex justify-center text-cyan-700 font-bold text-xl'>Shippment Address</p>
@@ -40,7 +43,7 @@ export default function Address() {
               state: e.target.value,
             })
           }
-        />
+          />
         <input
           className="w-full px-4 py-2 rounded-md border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
           type="text"
@@ -66,10 +69,11 @@ export default function Address() {
               country: e.target.value,
             })
           }
-        />
+          />
 
         <Button text={'Add the address'} />
       </form>
     </div>
+          </>
   );
 }

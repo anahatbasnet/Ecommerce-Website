@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import Button from '../component/Button'
 import Khalti from '../component/Khalti/Khalti'
+import Navbar from '../component/Navbar'
 
 export default function Order() {
   const { location } = useSelector(state => state.address)
@@ -18,6 +19,8 @@ export default function Order() {
   }
 
   return (
+    <>
+    <Navbar/>
     <div className='md:p-6 md: bg-white md:shadow-md md:w-[60%] md:m-auto md:mt-20 w-52  '>
       <h2 className=' text-lg font-bold'>Order Details</h2>
       <div className=' order-3  m-2 w-[40rem] h-[10rem] flex   '>
@@ -25,7 +28,7 @@ export default function Order() {
           src={buy.image}
           alt=''
           className='object-content item-center m-5'
-        />
+          />
         <div>
           <h2 className='font-bold text-sky-700 text-2xl mt-8  '>
             {buy.title}
@@ -57,5 +60,6 @@ export default function Order() {
         <Khalti price={buy.price * counter} />
       </div>
     </div>
+          </>
   )
 }

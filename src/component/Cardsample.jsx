@@ -30,7 +30,7 @@ export default function Cardsample({ item }) {
   }, [wish])
 
   return (
-    <div className='m-5 border-black border w-[22rem] max-[700px]:m-2'>
+    <div className='m-5 border-black border w-[20rem] max-[700px]:m-2 rounded-2xl '>
       <button className='p-2' onClick={redheart}>
         {red ? (
           <AiOutlineHeart size={30} style={{ color: 'red' }} />

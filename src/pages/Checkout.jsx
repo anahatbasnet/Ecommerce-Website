@@ -4,6 +4,7 @@ import Khalti from '../component/Khalti/Khalti'
 
 
 import Button from '../component/Button'
+import Navbar from '../component/Navbar'
 
 
 export default function Checkout() {
@@ -22,6 +23,8 @@ export default function Checkout() {
   })
 
   return (
+    <>
+    <Navbar/>
     <div className='bg-gray-100 min-h-screen'>
       <div className='max-w-4xl mx-auto px-4 py-8'>
         <div className='bg-white rounded shadow-md p-6'>
@@ -45,5 +48,6 @@ export default function Checkout() {
         </div>
       </div>
    
+    </>
   )
 }

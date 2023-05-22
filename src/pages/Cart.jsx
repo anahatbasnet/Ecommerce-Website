@@ -64,7 +64,7 @@ export default function Cart() {
           </div>
 
           {checkedItems.length > 0 && (
-            <div className='flex  h-[100vh] w-[25%] flex-col bg-grey border mt-20 mr-10 ' >
+            <div className='flex  h-[100vh] w-[30%] flex-col bg-grey border mt-20 mr-2' >
               <h2 className='flex justify-center font-bold text-3xl text-sky-700 border-b-4 p-3 border-sky-700 '>
                 Order Summary
               </h2>
