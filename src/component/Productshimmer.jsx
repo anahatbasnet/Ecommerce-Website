@@ -8,9 +8,10 @@ import {
 const Productshimmer = () => {
   return (
     <div className='h-[27rem] w-[20rem] m-5'>
-      <ShimmerThumbnail height={400} width={'auto'} />;
-      <ShimmerTitle line={1} center />
-      <ShimmerTitle line={1} center />
+      <ShimmerThumbnail height={170} width={'auto'} />
+      
+      <ShimmerTitle line={3} center />
+      
       <div className='flex justify-evenly '>
         <div className='w-[30%] flex flex-col '>
           <ShimmerText line={2} />

@@ -1,12 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { CgLaptop } from "react-icons/cg";
 
 const productslice = createSlice({
   name: "Products",
   initialState: {
+    cartItems:[],
     products: null,
     counter: 1,
   },
   reducers: {
+    setCartItems:(state,action) => {
+      state.cartItems=[...state.cartItems,action.payload]
+      console.log(state.cartItems)
+
+    },
     setProducts: (state, action) => {
       state.products = action.payload;
     },
@@ -24,5 +31,5 @@ const productslice = createSlice({
   },
 });
 
-export const { setProducts, setIncrementCounter, setDecrementCounter, setCounter } = productslice.actions;
+export const { setProducts, setIncrementCounter, setDecrementCounter, setCounter,setCartItems } = productslice.actions;
 export default productslice.reducer;

@@ -2,16 +2,16 @@ import { createSlice } from "@reduxjs/toolkit";
 const addressslice = createSlice({
     name:'address',
     initialState:{
-        location:''
+    Information:''
 
     },
     reducers:{
-        setLocation:(state,action)=>{
-            state.location=action.payload;
-        console.log(state.location)
+        setInformation:(state,action)=>{
+            state.Information=action.payload;
+        console.log(state.Information)
         },
       
     }
 })
-export const {setLocation}=addressslice.actions
+export const {setInformation}=addressslice.actions
 export default addressslice.reducer

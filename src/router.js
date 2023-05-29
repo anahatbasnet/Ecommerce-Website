@@ -1,4 +1,4 @@
-import { createBrowserRouter, Route } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 
 import Purchase from './pages/Productdetail'
 import Buynow from './pages/Buynow'
@@ -14,6 +14,14 @@ import Checkout from './pages/Checkout'
 import Deliverypage from './pages/Deliverypage'
 import logo from './assets/Images/logo.png'
 import { lazy, Suspense } from 'react'
+import About from './pages/About'
+import Modal from 'component/Modal'
+import { element } from 'prop-types'
+import Shipment from 'pages/Shipment'
+import MensClothing from 'pages/Mensclothing'
+import Jewelry from 'pages/Jewelry'
+import Electronics from 'pages/Electronics'
+
 
 const App = lazy(() => import('../src/App'))
 
@@ -24,18 +32,18 @@ const router = createBrowserRouter([
       <Suspense
         fallback={
           <div className='m-auto flex justify-center w-[100%] h-[100vh] p-80'>
-            <img src={logo} />
+            <img src={logo} alt='loading...' />
           </div>
         }
       >
-        <Protected Home={App} />
+        <App/>
       </Suspense>
     ),
   },
   {
     path: '/purchase/:id',
 
-    element: <Protected Home={Purchase} />,
+    element: <Purchase/>,
   },
   {
     path: '/buynow',
@@ -77,6 +85,32 @@ const router = createBrowserRouter([
     path: '/delivery',
     element: <Deliverypage />,
   },
+  {
+    path: '/about',
+    element: <Protected Home={About} />,
+  },
+  {
+    path:'/modal',
+    element: <Modal />,
+
+  },
+  {
+    path:'/shipment',
+    element:<Shipment/>,
+  },
+  {
+    path:"/men's clothing",
+    element:<MensClothing/>
+  },
+  {
+    path:"/jewelry",
+    element:<Jewelry/>
+  },
+  {
+    path:"/electronics",
+    element:<Electronics/>
+  },
+  ,
 ])
 
 export default router

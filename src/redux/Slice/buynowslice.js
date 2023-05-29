@@ -7,7 +7,7 @@ const buynowslice = createSlice({
   reducers: {
     setbuy: (state, action) => {
       state.buy = action.payload
-      console.log(state.buy)
+      console.log("hululuolul",state.buy)
     },
   },
 })

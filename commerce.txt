@@ -1,0 +1,12 @@
+about ko navbar sticky
+consistency in whishlist
+login wala if user checkouts then only login
+country dropdown
+order phone numbers haru rakhne
+padding dine sab design haru ma
+quantity in add to cart page
+search
+slider slick slider bata opacity and overlay in slider
+footer
+alert ma model component banaune
+vitra ni simmer

@@ -30,7 +30,7 @@ export default function Cardsample({ item }) {
   }, [wish])
 
   return (
-    <div className='m-5 border-black border w-[20rem] max-[700px]:m-2 rounded-2xl '>
+    <div className='m-5 border w-[20rem] shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]  '>
       <button className='p-2' onClick={redheart}>
         {red ? (
           <AiOutlineHeart size={30} style={{ color: 'red' }} />
@@ -42,22 +42,22 @@ export default function Cardsample({ item }) {
         <img
           src={item?.image}
           alt='product'
-          className='w-[18rem] h-[24rem] flex p-5 justify-center ml-5 object-contain '
+          className='w-[18rem] h-[15rem] flex p-5 justify-center ml-5 object-contain '
         />
 
-        <p className='flex justify-center font-bold text-2xl items-center text-center m-4'>
+        <p className='flex justify-center text-xl items-center text-center m-4 '>
           {item?.title}
         </p>
 
         <div className='flex justify-between m-2'>
-          <p className='flex items-center'>
+          <p className='flex items-center '>
             <AiFillStar />
             {item?.rating?.rate}
           </p>
-          <p className='flex justify-center font-bold items'>
-            PRICE: ${item?.price}
+          <p className='flex justify-center  text-lg font-semibold'>
+            Price: ${item?.price}
           </p>
-          <p className='flex items-center'>
+          <p className='flex items-center '>
             <BsFillPersonFill />
             {item?.rating?.count}
           </p>

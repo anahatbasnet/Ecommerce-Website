@@ -27,7 +27,7 @@ export default function Register() {
           Register
         </div>
         <div className='bg-white rounded shadow-md p-8'>
-          <form className='flex flex-col space-y-4' onSubmit={handleSubmit}>
+          <form className='flex flex-col space-y-4 ' onSubmit={handleSubmit}>
             <label htmlFor='Username' className='font-semibold'>
               Username
             </label>
