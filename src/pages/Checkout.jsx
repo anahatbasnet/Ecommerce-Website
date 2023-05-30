@@ -43,7 +43,7 @@ export default function Checkout() {
       <div className='sticky top-0 z-10 bg-white'>
         <Navbar />
       </div>
-      <div className='bg-gray-100 '>
+      <div className='bg-gray-100 md:p-14 '>
         <div className='max-w-4xl mx-auto px-4 py-8'>
           <div className='bg-white rounded shadow-md p-6'>
             {filter.map(cart => (
@@ -67,8 +67,8 @@ export default function Checkout() {
           </div>
         </div>
       </div>
-
       <Footer />
+
     </>
   )
 }

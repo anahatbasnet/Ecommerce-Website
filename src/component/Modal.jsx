@@ -16,7 +16,7 @@ export default function Modal({ toggleModal }) {
     setSelectedProvince(event.target.value)
     setSelectedAddress('')
   }
-  
+
   const handleAddressChange = event => {
     setSelectedAddress(event.target.value)
   }
@@ -37,6 +37,7 @@ export default function Modal({ toggleModal }) {
       city: selectedAddress,
     }
     dispatch(setInformation(updatedAddress))
+    toggleModal()
 
     setAddress({
       fullname: '',
@@ -48,17 +49,14 @@ export default function Modal({ toggleModal }) {
     })
     setSelectedProvince('')
     setSelectedAddress('')
-   
   }
 
   return (
     <>
-    
       <div className='modal'>
         <div onClick={toggleModal} className='overlay'></div>
         <div className='modal-content top-[40%] left-[50%] '>
           <div className='  md:first-letter:  '>
-
             <form
               className='space-y-4 font-semibold text-lg m-2 self-center md:w-full md:flex-col md:justify-evenly'
               onSubmit={handleAddress}
@@ -113,9 +111,8 @@ export default function Modal({ toggleModal }) {
                       })
                     }
                   />
-
                 </div>
-               
+
                 <div className='secondcol '>
                   <div className='detail  pt-2 pb-2'>Province:</div>
                   <select

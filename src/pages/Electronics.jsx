@@ -26,7 +26,7 @@ const Electronics = () => {
         console.error('Error fetching data:', error);
         setShimmer(false);
       });
-  }, []);
+  }, [electronicsItems]);
 
   return (
     <div>
@@ -47,7 +47,7 @@ const Electronics = () => {
         </div>
         </>
       ) : (
-        <div className='p-10 md:p-5'>
+        <div className='md:flex md:justify-center md:flex-col md:ml-[12rem] ml-[3rem] mb-2  object-contain p-20 '>
          
           <Cards category='electronics' loading={shimmer} search={search} />
         </div>

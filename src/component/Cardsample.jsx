@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AiFillStar, AiOutlineHeart } from 'react-icons/ai'
+import { AiFillStar, AiOutlineHeart, AiTwotoneHeart } from 'react-icons/ai'
 import { BsFillPersonFill } from 'react-icons/bs'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -33,7 +33,7 @@ export default function Cardsample({ item }) {
     <div className='m-5 border w-[20rem] shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)]  '>
       <button className='p-2' onClick={redheart}>
         {red ? (
-          <AiOutlineHeart size={30} style={{ color: 'red' }} />
+          <AiTwotoneHeart size={30} style={{ color: 'red' }} />
         ) : (
           <AiOutlineHeart size={30} />
         )}

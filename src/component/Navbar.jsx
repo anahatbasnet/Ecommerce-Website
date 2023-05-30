@@ -1,30 +1,29 @@
 import { useEffect, useState } from 'react';
 import {
+  AiOutlineClose,
   AiOutlineHeart,
   AiOutlineMenu,
   AiOutlineSearch,
   AiOutlineShoppingCart,
-  AiOutlineClose,
 } from 'react-icons/ai';
 import { BiLogOut } from 'react-icons/bi';
-import { useSelector } from 'react-redux';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+
+import { Link,  useNavigate } from 'react-router-dom';
 import logo from '../assets/Images/logo.png';
 
 export default function Navbar({ onSelectCategory, setSearch, state }) {
   const navigate = useNavigate();
-  const location = useLocation();
-  const items = useSelector((store) => store.Products.products);
+  
   const url = window.location.href;
   const [selectedCategory, setSelectedCategory] = useState(state ? state : '');
   const [toggle, setToggle] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [searchSuggestions, setSearchSuggestions] = useState([]);
-let timeoutId;
   const handleMenu = () => {
     setToggle(!toggle);
   };
-
+  // eslint-disable-next-line
+let timeoutId;
   const fetchSearchSuggestions = async (searchTerm) => {
     timeoutId = setTimeout(async () => {
       try {
@@ -136,7 +135,7 @@ let timeoutId;
               <input
                 type='text'
                 onChange={handleSearchChange}
-                className='flex md:w-[35rem] w-[12rem] border-sky-700 border-2'
+                className='flex md:w-[35rem] w-[12rem] border-sky-700 border-2 '
                 placeholder='Search'
                 value={searchTerm}
               />
@@ -147,8 +146,10 @@ let timeoutId;
                   onClick={clearSearchSuggestions}
                 />
               )}
+<button onClick={handleSearchChange}>
 
               <AiOutlineSearch className='ml-2 text-[#BBE1FA] ' />
+</button>
             </div>
 
             {searchSuggestions.length > 0 && (

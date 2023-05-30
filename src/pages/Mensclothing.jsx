@@ -6,7 +6,7 @@ import Cards from 'component/Cards'
 import Productshimmer from 'component/Productshimmer'
 
 const MensClothing = () => {
-  const [mensClothingItems, setMensClothingItems] = useState([])
+  const [ setMensClothingItems] = useState([])
   const [shimmer, setShimmer] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState('')
   const [search, setSearch] = useState(null)
@@ -26,7 +26,7 @@ const MensClothing = () => {
         console.error('Error fetching data:', error)
         setShimmer(false)
       })
-  }, [])
+  }, [setMensClothingItems])
 
   return (
     <div>
@@ -47,7 +47,7 @@ const MensClothing = () => {
           </div>
         </>
       ) : (
-        <div className='p-10 md:p-5 '>
+        <div className='md:flex md:justify-center md:flex-col md:ml-[12rem] ml-[3rem] mb-2  object-contain p-20 '>
           <Cards category="men's clothing" loading={shimmer} search={search} />
         </div>
       )}

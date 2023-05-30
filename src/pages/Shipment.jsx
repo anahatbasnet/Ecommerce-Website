@@ -57,8 +57,8 @@ export default function Shipment(){
                 <div className='flex items-center '>
                  
                   
-                      <div className='max-w-4xl mx-auto px-4 py-8 ml-20 md:w-[45rem]'>
-                        {/* <div className='bg-white rounded shadow-md p-6'> */}
+                      <div className='max-w-4xl mx-auto px-4 py-8 md:w-[45rem] p-5 md:ml-32'>
+                     
                           {filter.length > 0 ? (
                             filter.map(cart => (
                               <Cartproduct
@@ -77,7 +77,7 @@ export default function Shipment(){
                             Be Ready with $ {totalPrice}
                           </p>
                         </div>
-                      {/* </div> */}
+                     
                     </div>
             <Link to ="/">
                 <button className=' border flex justify-center bg-green-600 p-2 md:w-[25%] text-white rounded-3xl mb-5 ml-5 '>Continue Shopping</button>
