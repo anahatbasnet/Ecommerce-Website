@@ -1,106 +1,109 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import {
   AiOutlineClose,
   AiOutlineHeart,
   AiOutlineMenu,
   AiOutlineSearch,
   AiOutlineShoppingCart,
-} from 'react-icons/ai';
-import { BiLogOut } from 'react-icons/bi';
-
-import { Link,  useNavigate } from 'react-router-dom';
-import logo from '../assets/Images/logo.png';
+} from 'react-icons/ai'
+import { BiLogOut } from 'react-icons/bi'
+import { useTranslation, Trans } from 'react-i18next'
+import { Link, useNavigate } from 'react-router-dom'
+import logo from '../assets/Images/logo.png'
 
 export default function Navbar({ onSelectCategory, setSearch, state }) {
-  const navigate = useNavigate();
-  
-  const url = window.location.href;
-  const [selectedCategory, setSelectedCategory] = useState(state ? state : '');
-  const [toggle, setToggle] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [searchSuggestions, setSearchSuggestions] = useState([]);
+  const lngs = {
+    en: { nativeName: 'EN' },
+    np: { nativeName: 'NP' },
+  }
+  const navigate = useNavigate()
+  const { t, i18n } = useTranslation()
+  const url = window.location.href
+  const [selectedCategory, setSelectedCategory] = useState(state ? state : '')
+  const [toggle, setToggle] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('')
+  const [searchSuggestions, setSearchSuggestions] = useState([])
   const handleMenu = () => {
-    setToggle(!toggle);
-  };
+    setToggle(!toggle)
+  }
   // eslint-disable-next-line
-let timeoutId;
-  const fetchSearchSuggestions = async (searchTerm) => {
+  let timeoutId
+  const fetchSearchSuggestions = async searchTerm => {
     timeoutId = setTimeout(async () => {
       try {
         const response = await fetch(
           `https://fakestoreapi.com/products?title=${searchTerm}`
-        );
-        const data = await response.json();
+        )
+        const data = await response.json()
         const suggestions = data
-          .filter((product) =>
+          .filter(product =>
             product.title.toLowerCase().includes(searchTerm.toLowerCase())
           )
-          .map((product) => product.title);
-        setSearchSuggestions(suggestions);
+          .map(product => product.title)
+        setSearchSuggestions(suggestions)
       } catch (error) {
-        console.error('Error fetching search suggestions:', error);
+        console.error('Error fetching search suggestions:', error)
       }
-    }, 500);
-  };
-  
+    }, 500)
+  }
 
   useEffect(() => {
-    setSelectedCategory(state ? state : '');
-  }, [state]);
+    setSelectedCategory(state ? state : '')
+  }, [state])
 
-  const handleCategorySelect = (event) => {
-    const category = event.target.value;
-    setSelectedCategory(category);
-    navigateToCategory(category);
-  };
+  const handleCategorySelect = event => {
+    const category = event.target.value
+    setSelectedCategory(category)
+    navigateToCategory(category)
+  }
 
-  const navigateToCategory = (category) => {
+  const navigateToCategory = category => {
     switch (category) {
       case "men's clothing":
-        navigate("/men's clothing");
-        break;
+        navigate("/men's clothing")
+        break
       case 'jewelry':
-        navigate('/jewelry');
-        break;
+        navigate('/jewelry')
+        break
       case 'electronics':
-        navigate('/electronics');
-        break;
+        navigate('/electronics')
+        break
       default:
-        navigate('/');
-        break;
+        navigate('/')
+        break
     }
-  };
+  }
 
   const handleLogout = () => {
-    localStorage.removeItem('user');
-    navigate('/login');
-  };
+    localStorage.removeItem('user')
+    navigate('/login')
+  }
 
-  const handleSearchChange = (event) => {
-    const searchTerm = event.target.value;
-    setSearchTerm(searchTerm);
+  const handleSearchChange = event => {
+    const searchTerm = event.target.value
+    setSearchTerm(searchTerm)
     if (searchTerm === '') {
-      setSearchSuggestions([]);
+      setSearchSuggestions([])
     } else {
-      fetchSearchSuggestions(searchTerm);
+      fetchSearchSuggestions(searchTerm)
     }
-  };
+  }
 
-  const handleSuggestionClick = (suggestion) => {
-    setSearchTerm(suggestion);
-    setSearch(suggestion); // Trigger search with the selected suggestion
-    setSearchSuggestions([]); // Clear suggestion list
-  };
+  const handleSuggestionClick = suggestion => {
+    setSearchTerm(suggestion)
+    setSearch(suggestion) // Trigger search with the selected suggestion
+    setSearchSuggestions([]) // Clear suggestion list
+  }
 
   const clearSearchSuggestions = () => {
-    setSearchTerm('');
-    setSearchSuggestions([]);
-  };
+    setSearchTerm('')
+    setSearchSuggestions([])
+  }
 
   return (
     <div className=''>
       <nav className='flex justify-between items-center py-6 md:px-10 lg:max-w-9xl md:w-7xl  mx-auto bg-[#0F4C75] md:h-[5rem] h-[5rem]'>
-        <div className='logo md:visible'>
+        <div className='logo md:visible p-2'>
           <Link to='/'>
             <img
               src={logo}
@@ -116,10 +119,10 @@ let timeoutId;
             onChange={handleCategorySelect}
             value={selectedCategory}
           >
-            <option value=''>CATEGORY</option>
-            <option value="men's clothing">MEN'S CLOTHING</option>
-            <option value='jewelry'>JEWELRY</option>
-            <option value='electronics'>ELECTRONICS</option>
+            <option value=''>{t('category')}</option>
+            <option value="men's clothing"> {t('mensclothing')}</option>
+            <option value='jewelry'>{t('jwelry')}</option>
+            <option value='electronics'>{t('Electronics')}</option>
           </select>
         </div>
 
@@ -127,7 +130,7 @@ let timeoutId;
           <div className='first  space-x-6 md:flex flex-row items-center'>
             <div className='about text-sm md:text-xl text-[#BBE1FA]  md:flex md:justify-evenly hidden md:visible'>
               <Link to={'/about'} className='ml-5 mb-2'>
-                ABOUT
+                <Trans i18nKey='about'> {t('learn')}</Trans>
               </Link>
             </div>
 
@@ -146,10 +149,9 @@ let timeoutId;
                   onClick={clearSearchSuggestions}
                 />
               )}
-<button onClick={handleSearchChange}>
-
-              <AiOutlineSearch className='ml-2 text-[#BBE1FA] ' />
-</button>
+              <button onClick={handleSearchChange}>
+                <AiOutlineSearch className='ml-2 text-[#BBE1FA] ' />
+              </button>
             </div>
 
             {searchSuggestions.length > 0 && (
@@ -167,6 +169,23 @@ let timeoutId;
             )}
           </div>
         )}
+        <div className='ml-5 d-none d-md-block flex p-0.8 mr-1'>
+          {Object.keys(lngs).map(lng => (
+            <button
+              type='submit'
+              key={lng}
+              onClick={() => i18n.changeLanguage(lng)}
+              disabled={i18n.resolvedLanguage === lng}
+              className={
+                i18n.resolvedLanguage === lng
+                  ? 'border text-white p-0.5 bg-slate-400 '
+                  : 'border text-white md:p-0.5'
+              }
+            >
+              {lngs[lng].nativeName}
+            </button>
+          ))}
+        </div>
 
         <div className='middle flex flex-grow hidden md:visible'></div>
 
@@ -196,25 +215,24 @@ let timeoutId;
           {toggle && (
             <>
               <div className='bg-[#0F4C75] w-[4rem]  absolute pr-5'>
-                <Link
-                  to={'/about'}
-                  className='profile md:text-3xl md:m-2 text-lg text-[#BBE1FA] mr:20 relative  '
-                >
-                  About
+                <Link to={'/about'}>
+                  <div className='profile md:text-3xl md:m-2 text-lg text-[#BBE1FA] mr:20 relative  '>
+                    {t('learn')}
+                  </div>
                 </Link>
                 <Link to='/wishlist'>
                   <div className='profile md:text-3xl md:m-2 text-lg text-[#BBE1FA] mr:20 relative'>
-                    Wishlist
+                    {t('wishlist')}
                   </div>
                 </Link>
                 <Link to='/cart'>
                   <div className='cart md:text-3xl md:m-2  text-[#BBE1FA] md:mr-2 mr:20 relative'>
-                    Cart
+                    {t('cart')}
                   </div>
                 </Link>
                 <Link to='/login'>
                   <div className='profile md:text-3xl md:m-2 text-lg text-[#BBE1FA]  mr:20 relative'>
-                    <button onClick={handleLogout}>Logout</button>
+                    <button onClick={handleLogout}>{t('logout')}</button>
                   </div>
                 </Link>
               </div>

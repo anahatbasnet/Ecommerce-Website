@@ -4,13 +4,13 @@ import Navbar from 'component/Navbar'
 import Footer from 'component/Footer'
 import Cards from 'component/Cards'
 import Productshimmer from 'component/Productshimmer'
-
+import { useTranslation } from 'react-i18next'
 const MensClothing = () => {
   const [ setMensClothingItems] = useState([])
   const [shimmer, setShimmer] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState('')
   const [search, setSearch] = useState(null)
-
+  const { t } = useTranslation()
   useEffect(() => {
     axios
       .get('https://fakestoreapi.com/products')
@@ -48,7 +48,7 @@ const MensClothing = () => {
         </>
       ) : (
         <div className='md:flex md:justify-center md:flex-col md:ml-[12rem] ml-[3rem] mb-2  object-contain p-20 '>
-          <Cards category="men's clothing" loading={shimmer} search={search} />
+          <Cards category="men's clothing" loading={shimmer} search={search}  title={t('mensclothing')} />
         </div>
       )}
       <Footer />

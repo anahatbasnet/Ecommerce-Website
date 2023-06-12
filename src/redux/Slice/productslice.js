@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { CgLaptop } from "react-icons/cg";
+
 
 const productslice = createSlice({
   name: "Products",

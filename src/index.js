@@ -4,7 +4,7 @@ import './index.css'
 import router from './router'
 import { Provider } from 'react-redux'
 // import { store } from './redux/Store/store'
-
+import './i18n'
 import reportWebVitals from './reportWebVitals'
 import { RouterProvider } from 'react-router-dom'
 import store from './redux/Store/store'

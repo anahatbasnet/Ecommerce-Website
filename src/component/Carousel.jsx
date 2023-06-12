@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import mens from '../assets/Images/mens.jpg'
 import electronics from '../assets/Images/electronics.jpg'
-
+import { useTranslation } from 'react-i18next'
 import {
   BsFillArrowRightCircleFill,
   BsFillArrowLeftCircleFill,
@@ -10,23 +10,24 @@ import {
 import { useNavigate } from 'react-router-dom'
 import ring from 'assets/Images/ring.jpg'
 export default function Carousel() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const carouselItems = [
     {
       image: electronics,
-      description: 'Get the best tech Products Here in Bazaar',
+      description: t('des2'),
       descriptionPosition: 'bottom-[1rem] left-[1rem] p-4 ',
       link: '/electronics',
     },
     {
       image: ring,
-      description: 'Shine bright like diamonds by shopping in Bazaar',
+      description: t('des1'),
       descriptionPosition: 'bottom-[5rem] left-[rem] p-4 ',
       link: '/jewelry',
     },
     {
       image: mens,
-      description: 'Make a style statement with Bazaar!!!',
+      description: t('des3'),
       descriptionPosition: 'bottom-0 right-0 p-4',
       link: "/men's clothing",
     },
@@ -79,7 +80,7 @@ export default function Carousel() {
             className='shop-now-button bg-white text-gray-900 px-4 py-2 mt-4 rounded'
             onClick={handleShopNow}
           >
-            Shop Now
+            {t('btn')}
           </button>
         </div>
         <div className='carousel-navigation absolute bottom-16 left-0 right-0 flex justify-between px-4 text-slate-50'>

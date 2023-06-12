@@ -35,7 +35,7 @@ export default function Cardsample({ item }) {
         {red ? (
           <AiTwotoneHeart size={30} style={{ color: 'red' }} />
         ) : (
-          <AiOutlineHeart size={30} />
+          <AiOutlineHeart size={30} style={{color:"#0F4C75"}} />
         )}
       </button>
       <Link to={`/purchase/${item?.id}`}>

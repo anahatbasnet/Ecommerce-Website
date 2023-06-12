@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 import Navbar from './component/Navbar'
-
+import { useTranslation } from 'react-i18next'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import Cards from './component/Cards'
@@ -18,7 +18,7 @@ function App() {
   const { state } = useLocation()
   const Category = state ? state : ''
   const navigate = useNavigate()
-
+  const { t } = useTranslation()
   useEffect(() => {
     axios.get('https://fakestoreapi.com/products').then(res => {
       dispatch(setProducts(res.data))
@@ -32,7 +32,6 @@ function App() {
     setSelectedCategory(selectedCategory)
   }
 
-
   return (
     <>
       <div>
@@ -43,7 +42,7 @@ function App() {
             state={Category}
           />
         </div>
-        
+
         <div className='w-[100%]'>
           <Carousel />
         </div>
@@ -56,12 +55,13 @@ function App() {
                 category={"men's clothing"}
                 loading={loading}
                 search={search}
+                title={t('mensclothing')}
               />
             )}
           </div>
           <div>
             {(selectedCategory === 'jewelery' || selectedCategory === '') && (
-              <Cards category={'jewelery'} loading={loading} search={search} />
+              <Cards category={'jewelery'} loading={loading} search={search}  title={t('jwelry')} />
             )}
           </div>
           <div>
@@ -71,7 +71,7 @@ function App() {
                 category={'electronics'}
                 loading={loading}
                 search={search}
-                
+                title={t('Electronics')}
               />
             )}
           </div>

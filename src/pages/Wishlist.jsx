@@ -2,10 +2,10 @@ import { useSelector } from 'react-redux'
 import Cardsample from '../component/Cardsample'
 import Navbar from '../component/Navbar'
 import {ImCross} from 'react-icons/im'
-
+import { useTranslation } from 'react-i18next'
 export default function Wishlist() {
   const { wish } = useSelector(state => state.wishlist)
-
+  const { t} = useTranslation()
   console.log(wish)
   return (
     <>
@@ -14,7 +14,7 @@ export default function Wishlist() {
       </div>
       <div className='wishlist'>
         <div className='title justify-center items-center text-5xl font-bold m-2 text-sky-700 '>
-          <p className='flex justify-center '> Wishlist</p>
+          <p className='flex justify-center '> {t('wishlist')}</p>
         </div>
         <div className='product flex flex-wrap justify-center'>
           {wish.length !== 0 ? (

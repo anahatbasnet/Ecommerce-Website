@@ -4,8 +4,9 @@ import PropTypes from 'prop-types'
 import Productshimmer from './Productshimmer'
 import { useState } from 'react'
 
-export default function Cards({ category, loading, search }) {
+export default function Cards({ category, loading, search,title }) {
   const items = useSelector(store => store.Products.products)
+
   let filteredProducts = items
   const [shimmer, setShimmer] = useState(true)
 
@@ -23,7 +24,7 @@ export default function Cards({ category, loading, search }) {
     <>
       {category && (
         <div className='flex justify-center text-sky-700 uppercase font-weight: 900 text-4xl md:mr-40 md:p-5 md:ml-1 '>
-          {category}
+          {title}
         </div>
       )}
       {loading ? (
