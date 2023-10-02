@@ -35,7 +35,7 @@ export default function Cards({ category, loading, search,title }) {
           <Productshimmer />
         </div>
       ) : (
-        <div className='flex flex-wrap object-contain ml-6'>
+        <div className='flex flex-wrap object-contain sm:ml-6'>
           {filteredProducts
             ?.filter(item =>
               search

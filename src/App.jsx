@@ -47,7 +47,8 @@ function App() {
           <Carousel />
         </div>
 
-        <div className='md:flex md:justify-center md:flex-col md:ml-[12rem] ml-[2rem] mb-2  object-contain p-20 '>
+        <div className='md:flex md:justify-center md:flex-col md:ml-[12rem] md
+        sm:ml-[2rem] mb-2  object-contain p-20 '>
           <div>
             {(selectedCategory === "men's clothing" ||
               selectedCategory === '') && (

@@ -63,7 +63,7 @@ export default function Carousel() {
   }
 
   return (
-    <div className='carousel-container w-full relative'>
+    <div className='carousel-container w-[100%] relative'>
       <div className='carousel-item relative'>
         <img
           className='carousel-image w-full h-[75vh] object-cover'
