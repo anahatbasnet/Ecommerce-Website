@@ -10,14 +10,12 @@ export default function Cards({ category, loading, search,title }) {
   let filteredProducts = items
   const [shimmer, setShimmer] = useState(true)
 
-  console.log('Category:', category)
-  console.log('Items:', items)
 
   if (category && category !== '') {
     filteredProducts = filteredProducts?.filter(
       item => item.category === category
     )
-    console.log('Filtered Products:', filteredProducts)
+
   }
 
   return (

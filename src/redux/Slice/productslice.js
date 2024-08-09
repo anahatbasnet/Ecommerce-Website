@@ -11,7 +11,7 @@ const productslice = createSlice({
   reducers: {
     setCartItems:(state,action) => {
       state.cartItems=[...state.cartItems,action.payload]
-      console.log(state.cartItems)
+      
 
     },
     setProducts: (state, action) => {
